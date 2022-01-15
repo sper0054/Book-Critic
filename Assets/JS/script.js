@@ -17,9 +17,15 @@ function getApi() {
     console.log (data)
     for (var i = 0; i < 5; i++) {
      var listItem = document.createElement('li');
-      listItem.textContent = data.results.lists[0].title;
+      listItem.textContent = data.results.lists[0].books[i].title;
+      bookList.appendChild(listItem);
+
+      var author = document.createElement('p');
+      author.textContent = data.results.lists[0].books[i].author;
+      listItem.appendChild(author);
     }
   });
 };
+
 
 fetchButton.addEventListener('click', getApi);
